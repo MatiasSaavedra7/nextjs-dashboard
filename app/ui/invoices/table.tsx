@@ -33,7 +33,7 @@ export default async function InvoicesTable({
                         height={28}
                         alt={`${invoice.name}'s profile picture`}
                       />
-                      <p>{invoice.name} Esto se renderiza solo en dispositivos moviles</p>
+                      <p>{invoice.name}</p>
                     </div>
                     <p className="text-sm text-gray-500">{invoice.email}</p>
                   </div>

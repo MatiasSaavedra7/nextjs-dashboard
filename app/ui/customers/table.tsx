@@ -5,22 +5,37 @@ import {
   CustomersTableType,
   FormattedCustomersTable,
 } from '@/app/lib/definitions';
+import { fetchFilteredCustomers } from '@/app/lib/data';
 
+// export default async function CustomersTable({
+//   customers,
+// }: {
+//   customers: FormattedCustomersTable[];
+// }) {
 export default async function CustomersTable({
-  customers,
+  query,
 }: {
-  customers: FormattedCustomersTable[];
+  query: string;
 }) {
+  const customers = await fetchFilteredCustomers(query);
+
   return (
     <div className="w-full">
+      {/* Title */}
       <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>
         Customers
       </h1>
+
+      {/* Search */}
       <Search placeholder="Search customers..." />
+
+      {/* Table */}
       <div className="mt-6 flow-root">
         <div className="overflow-x-auto">
           <div className="inline-block min-w-full align-middle">
             <div className="overflow-hidden rounded-md bg-gray-50 p-2 md:pt-0">
+
+              {/* Mobile */}
               <div className="md:hidden">
                 {customers?.map((customer) => (
                   <div
@@ -62,6 +77,8 @@ export default async function CustomersTable({
                   </div>
                 ))}
               </div>
+
+              {/* Desktop */}
               <table className="hidden min-w-full rounded-md text-gray-900 md:table">
                 <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
                   <tr>
@@ -82,6 +99,7 @@ export default async function CustomersTable({
                     </th>
                   </tr>
                 </thead>
+
 
                 <tbody className="divide-y divide-gray-200 text-gray-900">
                   {customers.map((customer) => (

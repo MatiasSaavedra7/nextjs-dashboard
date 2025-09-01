@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6 bg-black">
+    <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <AcmeLogo />
       </div>
@@ -17,9 +17,12 @@ export default function Page() {
           <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>Welcome to Acme.</strong> This is the example for the{' '}
             <a href="https://nextjs.org/learn/" className="text-blue-500">
-              Next.js Learn Course, by Matias Saavedra
+              Next.js Learn Course,
             </a>
-            , brought to you by Vercel.
+            {' '}developed by{' '}
+            <a href="https://matias-saavedra.vercel.app/" className='text-blue-500'>
+              Matias Saavedra.
+            </a>
           </p>
           <Link
             href="/login"
