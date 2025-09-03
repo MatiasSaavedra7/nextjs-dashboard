@@ -2,6 +2,11 @@ import CustomersTable from "@/app/ui/customers/table";
 import Search from "@/app/ui/search";
 import { Suspense } from "react";
 import { CustomersTableSkeleton } from "@/app/ui/skeletons";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Customers',
+};
 
 export default async function Page(props: {
   searchParams: Promise<{ query?: string }>
